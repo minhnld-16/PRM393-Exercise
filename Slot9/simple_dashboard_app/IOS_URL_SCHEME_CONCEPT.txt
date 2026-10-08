@@ -1,0 +1,8 @@
+Slot 9: iOS URL Scheme Navigation (chỉ nhận thức, KHÔNG yêu cầu cấu hình native)
+
+Ví dụ trong đề: myapp://products
+Khi có cấu hình tương ứng ở iOS, hệ điều hành có thể mở app từ đường link.
+App có thể điều hướng nội bộ đến '/products' bằng Navigator.pushNamed.
+
+Đề ghi rõ không bắt buộc cấu hình Info.plist, SceneDelegate hoặc cài package.
+Không có thiết lập deep link thật trong gói này; không tuyên bố URL hoạt động.

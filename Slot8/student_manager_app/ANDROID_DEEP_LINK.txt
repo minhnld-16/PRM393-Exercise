@@ -1,0 +1,11 @@
+Bài tập Android Deep Link - Slot 8, trang 31-32
+
+AndroidManifest.xml đã có intent-filter studentapp://student/detail.
+Sau khi chạy `flutter create . --platforms=android`, đảm bảo intent-filter vẫn nằm
+trong android/app/src/main/AndroidManifest.xml (không ghi đè mất khi tạo project).
+
+Ví dụ kiểm tra trên terminal có adb:
+adb shell am start -a android.intent.action.VIEW -d "studentapp://student/detail?id=S001"
+
+Giới hạn ĐƯỢC NÊU TRONG ĐỀ: App chưa parse query id=S001; giai đoạn này
+chỉ chứng minh OS có thể mở app từ URL. Bài nâng cao parse query chưa làm.
