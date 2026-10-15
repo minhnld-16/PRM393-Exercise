@@ -1,0 +1,14 @@
+analyzer:
+  errors:
+    invalid_assignment: error
+    missing_required_param: error
+  exclude:
+    - build/**
+    - android/**
+    - windows/**
+linter:
+  rules:
+    - avoid_print
+    - prefer_const_constructors
+    - prefer_final_fields
+    - use_key_in_widget_constructors
