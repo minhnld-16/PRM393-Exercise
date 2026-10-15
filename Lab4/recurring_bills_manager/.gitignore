@@ -8,6 +8,8 @@ coverage/
 .flutter-plugins
 .flutter-plugins-dependencies
 .metadata
+.idea/
+*.iml
 android/.gradle/
 android/local.properties
 android/key.properties

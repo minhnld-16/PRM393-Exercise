@@ -3,30 +3,37 @@ Recurring Bills Manager | Lab4
 Source: Lab4.pdf; Flutter/Dart, Android, Material Design.
 
 REQUIREMENTS
-- Flutter SDK + Dart, Android SDK, emulator or Android phone; VS Code / Android Studio.
-- Internet on first build for Pub packages and Gradle dependencies.
+- Flutter SDK + Dart; VS Code / Android Studio.
+- Windows desktop: Visual Studio with Desktop development with C++ and Windows SDK.
+- Android: Android SDK and emulator or Android phone.
+- Internet on first build for dependencies.
 
 RUN ON WINDOWS
 1. Extract ZIP. Open folder `recurring_bills_manager` in VS Code.
-2. Run RUN_WINDOWS.bat (or in terminal: flutter create --project-name recurring_bills_manager --platforms android . ; flutter pub get ; flutter run).
-3. `flutter doctor` to check Android development environment.
-4. A device must be connected or an Android emulator started.
+2. Run RUN_WINDOWS.bat (or run: flutter pub get, then flutter run -d windows).
+3. Run `flutter doctor -v` to check the Windows / Visual Studio development environment.
+4. Windows desktop does not require an Android emulator.
+
+RUN ON ANDROID
+1. Connect an Android device or start an Android emulator.
+2. Run `flutter devices`, then `flutter run -d <android-device-id>`.
 
 NOTES
-- SDK not present in author's execution environment; cannot claim Flutter build/emulator test passed.
+- Windows/Linux use sqflite_common_ffi; Android uses the sqflite plugin.
+- Windows/Linux databases are stored in the application's support directory.
 - Android Gradle wrapper/bootstrap files are generated through flutter create using installed Flutter SDK.
-- PNG banner provided in assets/images/banner.png; local DB is created automatically upon first launch.
+- Banner is drawn with Flutter widgets; local DB is created automatically upon first launch.
 - SQLite data and SharedPreferences sessions remain on the emulator/device across app restarts.
 - Example output: visible app screens and current database values; actual values depend on your input.
 
 LAB 4 SPECIFIC BEHAVIOR
 - SQLite table bills: id, bill_name, category, amount (REAL), status, due_date (ISO YYYY-MM-DD).
-- Starting list may be empty. Tap + to enter Bill Name, Category, Amount, Due Date and Paid/Unpaid (default Unpaid).
+- Starting list may be empty. Tap + to enter Bill Name, select Category, enter Amount and Due Date (YYYY-MM-DD), and select Paid/Unpaid (default Unpaid).
 - Tap a bill to edit; Update/Delete/Back appear on ONE row.
-- Deletion requires confirmation. Add/update/delete show a SnackBar result.
+- Deletion requires confirmation. Validation and add/update/delete results use dialogs.
 - Bottom tabs: All Bills and Unpaid. The Unpaid tab lists only Unpaid and sums their amounts in VND.
 - The example figures mention FlatList (a React Native component); Flutter implementation uses ListView.builder as expressly suggested in the lab.
-- Banner image is a locally bundled PNG illustration for the required banner (not an exact reproduction of the screenshot).
+- Home uses a cream illustrated banner, purple amounts and status badges; Unpaid uses compact rows and an orange outstanding summary below the list.
 
 MANUAL TEST CHECKLIST (NOT YET EXECUTED)
 [ ] First launch shows empty list/banner/tab navigation.
